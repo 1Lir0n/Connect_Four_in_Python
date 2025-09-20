@@ -19,8 +19,8 @@ board_offset_top = screen.get_height()//2-slot_size*ROWS//2
 board_color = "blue"
 background_color = "grey90"
 scores = [0,0] # player1,player2
-player1 = "green"
-player2 = "orange"
+player1 = "red"
+player2 = "yellow"
 turn = player1
 
 # Functions 
@@ -180,7 +180,8 @@ while running:
     screen.blit(text, (-text.get_rect().width/2+slot_size*COLUMNS/2+board_offset_left,text.get_rect().height/2+slot_size*ROWS+board_offset_top))
     if game_ended > 0:
         victory_text = (f'{f"Player1-{player1}" if game_ended == 1 else f"Player2-{player2}"} Won!')
-        screen.blit(render(victory_text,VFONT,gfcolor=pygame.Color(background_color),ocolor=pygame.Color("black")),(-text.get_rect().width/2+screen.get_width()/2,-text.get_rect().height/2+screen.get_height()/2))
+        victory = render(victory_text,VFONT,gfcolor=pygame.Color(background_color),ocolor=pygame.Color("black"))
+        screen.blit(victory,(-victory.get_rect().width/2+screen.get_width()/2,-victory.get_rect().height/2+screen.get_height()/2))
         
     # flip() the display to put your work on screen
     pygame.display.flip()
